@@ -1,0 +1,67 @@
+
+//init swarm 
+docker swarm init --advertise-addr <IP_ADDRESS>
+
+//exit the session
+sudo docker swarm leave -f
+
+//list all nodes 
+docker node ls
+
+//add new service where init on worker 
+docker swarm join --token <token> ip:door
+
+//token for join
+ docker swarm join --token token_name ip:port 
+
+ //generate service
+ docker service create --name image
+ docker service create --name ngunxswarm2 -p80:80 nginx
+ 
+ //list service 
+ docker service ls
+ 
+ //remove service
+ docker  service rm 
+
+//open new services
+docker service create --name nginxreplicas 3 -p 80:80 nginx
+
+//remove worker 
+docker container rm -name -f
+
+//check token swarm 
+docker swamr join-token manager
+
+//chekc info from container 
+docker info
+
+//remove instance
+docker swarm leave 
+
+//remove node 
+docker node rm id 
+
+//verifike run container 
+docker service ps
+
+//configure compose
+vin docker -compose.yaml
+
+//scale swarm
+docker service scale name cervice replics
+sudo docker service scale nginx_swarm_web=3
+ 
+//limit node
+docker node update --availability drain id
+
+//update service
+docker service update --image image service
+
+//create network
+docker network create
+
+//update network and conect servic to a exist network
+docker service update  --network-add swarm name pkjpk
+
+
